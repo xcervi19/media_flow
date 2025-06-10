@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Jupyter & IPython
+.ipynb_checkpoints/
+
+# Environments
+.env
+.venv/
+env/
+venv/
+*.env
+*.conda
+
+# Byte-compiled and logs
+*.log
+*.sqlite3
+
+# Video/image/audio outputs
+output/
+*.mp4
+*.avi
+*.mov
+*.wav
+*.mp3
+*.jpg
+*.jpeg
+*.png
+*.otf
+
+# Model caches (např. Whisper, HuggingFace)
+~/.cache/
+.cache/
+*.pth
+*.ckpt
+
+# VSCode
+.vscode/
+
+# macOS
+.DS_Store
+
+# PyCharm
+.idea/
