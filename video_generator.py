@@ -34,11 +34,9 @@ AUDIO_FILE = None
 for f in os.listdir(ASSETS_DIR):
     if f.lower().endswith((".jpg", ".jpeg", ".png")) and BACKGROUND_IMG is None:
         BACKGROUND_IMG = os.path.join(ASSETS_DIR, f)
-    if f.lower().endswith((".mp3", ".wav")) and AUDIO_FILE is None:
-        AUDIO_FILE = os.path.join(ASSETS_DIR, f)
 
 # Ověř
-if not BACKGROUND_IMG or not AUDIO_FILE:
+if not BACKGROUND_IMG:
     raise FileNotFoundError("Chybí background image nebo audio v assets složce.")
 
 # Načti background a zjisti parametry
@@ -106,11 +104,7 @@ for text in texts:
 # Vytvoř video klip
 clip = ImageSequenceClip(frames, fps=fps)
 
-# Přidej audio
-audio = AudioFileClip(AUDIO_FILE).with_duration(clip.duration)
-final = clip.with_audio(audio)
-
 # Výstup
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 output_path = os.path.join(OUTPUT_DIR, "ad_video.mp4")
-final.write_videofile(output_path, codec="libx264", audio_codec="aac")
+clip.write_videofile(output_path, codec="libx264", audio_codec="aac")
