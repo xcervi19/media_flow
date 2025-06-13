@@ -13,7 +13,7 @@ def get_video_resolution(path):
     video_stream = next(s for s in streams if s["codec_type"] == "video")
     return int(video_stream["width"]), int(video_stream["height"])
 
-video_file = glob.glob("in/*.[mM][oO][vVpP4]*")[0]
+video_file = [f for f in glob.glob("in/*") if f.lower().endswith((".mp4", ".mov"))][0]
 width, height = get_video_resolution(video_file)
 
 if width > height:
