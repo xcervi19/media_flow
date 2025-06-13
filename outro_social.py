@@ -19,10 +19,10 @@ subprocess.run([
     [3:v]scale=200:-1[facebook];
     [4:v]scale=200:-1[youtube];
     [0:v]format=yuv420p[base];
-    [base][insta]overlay=x=500:y='if(lt(t,{start+1}),(H+200)-(t-{start+1})*400,H/2)':enable='between(t,{start+1},{duration})'[s1];
-    [s1][tiktok]overlay=x=650:y='if(lt(t,{start+1.3}),(H+200)-(t-{start+1.3})*400,H/2)':enable='between(t,{start+1.3},{duration})'[s2];
-    [s2][facebook]overlay=x=800:y='if(lt(t,{start+1.6}),(H+200)-(t-{start+1.6})*400,H/2)':enable='between(t,{start+1.6},{duration})'[s3];
-    [s3][youtube]overlay=x=950:y='if(lt(t,{start+1.9}),(H+200)-(t-{start+1.9})*400,H/2)':enable='between(t,{start+1.9},{duration})'
+    [base][insta]overlay=x='(W-950)/2':y='if(lt(t,{start+1}),(H+200)-(t-{start+1})*400,H/2)':enable='between(t,{start+1},{duration})'[s1];
+    [s1][tiktok]overlay=x='(W-950)/2+250':y='if(lt(t,{start+1.3}),(H+200)-(t-{start+1.3})*400,H/2)':enable='between(t,{start+1.3},{duration})'[s2];
+    [s2][facebook]overlay=x='(W-950)/2+500':y='if(lt(t,{start+1.6}),(H+200)-(t-{start+1.6})*400,H/2)':enable='between(t,{start+1.6},{duration})'[s3];
+    [s3][youtube]overlay=x='(W-950)/2+750':y='if(lt(t,{start+1.9}),(H+200)-(t-{start+1.9})*400,H/2)':enable='between(t,{start+1.9},{duration})'
     """,
     "-c:a", "copy",
     "-shortest",
