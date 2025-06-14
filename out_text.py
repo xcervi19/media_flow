@@ -14,7 +14,7 @@ subprocess.run([
     text='FOLLOW US':
     fontcolor=white:fontsize=120:
     x=(w-text_w)/2:
-    y='if(lt(t,{start+1}),(h*-0.2 + (h*0.4)*(t-{start})/1.2),h*0.2)':
+    y='if(lt(t,{start+1.2}), h*-0.5 + (h*0.7)*(1 - exp(-(t-{start})*3)), h*0.2)':
     enable='gte(t,{start})',
 
     drawtext=fontfile=fonts/OpenSans-Regular.ttf:
