@@ -14,8 +14,8 @@ subprocess.run([
     text='FOLLOW US':
     fontcolor=white:fontsize=120:
     x=(w-text_w)/2:
-    y='h*-0.5 + (h*0.7)*(1 - exp(-((t-{start})*3)))':
-    enable='between(t,{start},{start+1.2})'[txt1];
+    y='if(lt(t,{start+1.2}), h*-0.5 + (h*0.9)*(1 - exp(-((t-{start})*1.3))), h*0.2)':
+    enable='gte(t,{start})'[txt1];
 
     [txt1]drawtext=fontfile=fonts/OpenSans-Regular.ttf:
     text='Join our creative':
